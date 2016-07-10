@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>UNAPLA : J'ai trouvé un essaim</title>
+        <script type="text/javascript" src="../js/getMapByAddress.js"></script>
+		<style>
+			html {
+				height: 100%
+			}
+			body {
+				height: 100%;
+				margin: 0;
+				padding: 0;
+				background: black;
+				font-family: Verdana;
+			}
+			h2 {
+				margin-bottom:1em;
+				font-family: Arial, Helvetica, sans-serif;
+				font-size: 1.3em;
+				font-style: normal;
+				text-align:center;
+			}
+			#map {
+			    width:100%;
+				height: 100%;
+				position:absolute;
+				left:20%;
+			}
+			form {
+			    position:absolute;
+			    left:0;
+			    right:80%;   
+                color: #fff;
+			}
+			
+			input[name="le_nom"] {
+	            position: absolute;
+	            left: 95px;
+	        }
+   		</style>
+    </head>
+    <body>
+        <form onsubmit="return false">
+        <fieldset>
+            <legend>Formulaire à envoyer</legend>
+            <label for="nom">Nom : <input id="nom" type="text" size="15" maxlength="20" name="le_nom"/></label>
+            <br><br>
+            <label for="prenom">Prénom : <input id="prenom" type="text" size="15" maxlength="20" name="le_prenom"/></label>
+            <br><br>
+            <label>Adresse : </label>
+                <input type="text" name="address" id="address" size="15" maxlength="50"/>              
+            <br><br>
+            <label for="code">Num.tel : <input id="code" type="tel" size="15" maxlength="10" name="le_code"/></label>
+            <br><br>
+            <input type="submit" value="Envoyer" onclick="searchAddress(map)"/>
+            <input type="reset" disable="disabled" value="Effacer"/>
+            <br><br>
+        </fieldset>   
+        <br> 
+        <fieldset>
+            <legend>Afficher par niveau d'apiculteur</legend>
+            <p><input type="checkbox" name="debutant" checked="checked" id="checkD" onclick="checkBoxD();" /> Débutant </p> 
+            <p><input type="checkbox" name="occasionnel" checked="checked" id="checkO" onclick="checkBoxO();" /> Occasionnel</p>
+            <p><input type="checkbox" name="confirme" checked="checked" id="checkC" onclick="checkBoxC();"/> Confirmé</p>
+        </fieldset>
+        <br>
+        <fieldset>
+            <legend>Légende</legend>
+            <img src="../img/blue_MarkerE.png"></a> Essaim d'abeilles
+            <br>
+            <img src="../img/green_MarkerD.png"></a> Apiculteurs débutants
+            <br>
+            <img src="../img/yellow_MarkerO.png"></a> Apiculteurs occasionnels
+            <br>
+            <img src="../img/red_MarkerC.png"></a> Apiculteurs confirmés
+        </fieldset>
+        </form>
+        <div id="map"></div>
+        
+    </body>
+</html>
